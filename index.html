@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喵喵粮仓 - 猫咪宠物粮食购物</title>
+    <!-- Font Awesome图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-paw"></i>
+                喵喵粮仓
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="#" id="login-placeholder"><i class="fas fa-user"></i> 登录</a></li>
+                    <li>
+                        <a href="#" id="cart-btn" class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i> 购物车
+                            <span class="cart-count">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- 搜索框 -->
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="搜索猫咪粮食...">
+            <button class="search-btn"><i class="fas fa-search"></i> 搜索</button>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="main-content">
+            <!-- 侧边栏分类 -->
+            <aside class="sidebar">
+                <h3><i class="fas fa-filter"></i> 商品分类</h3>
+                <ul class="category-list">
+                    <li><a href="#" class="active" data-category="all">全部商品</a></li>
+                    <li><a href="#" data-category="dry-food">干粮</a></li>
+                    <li><a href="#" data-category="wet-food">湿粮</a></li>
+                    <li><a href="#" data-category="snacks">零食</a></li>
+                </ul>
+            </aside>
+
+            <!-- 商品展示区域 -->
+            <section class="products-section">
+                <div class="section-title">
+                    <h2><i class="fas fa-fire"></i> 热销商品</h2>
+                    <span id="product-count">加载中...</span>
+                </div>
+                
+                <!-- 商品卡片容器 -->
+                <div class="products-grid" id="products-grid">
+                    <!-- 商品卡片会通过JS动态生成 -->
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 25216950117</p>
+            <p>陈世尧 计科1班</p>
+        </div>
+    </footer>
+
+    <!-- 商品详情模态框 -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="product-detail-content">
+                <!-- 商品详情内容会通过JS动态生成 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 购物车模态框 -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-shopping-cart"></i> 购物车</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- 购物车商品会通过JS动态生成 -->
+            </div>
+            <div class="cart-total">
+                总计: <span id="cart-total-price">¥0.00</span>
+            </div>
+            <button id="checkout-btn" class="add-to-cart">去结算</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
