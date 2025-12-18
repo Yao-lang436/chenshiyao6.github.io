@@ -1,0 +1,411 @@
+/* 基础重置和全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+}
+
+/* 颜色变量定义 */
+:root {
+    --primary-color: #F5E9D4; /* 主色调 - 米色 */
+    --secondary-color: #E8D0B3; /* 次要色 - 浅棕 */
+    --accent-color: #D4A76A; /* 强调色 - 暖棕 */
+    --text-color: #5C4B37; /* 文字色 - 深棕 */
+    --light-color: #FAF5EB; /* 背景色 - 浅米色 */
+    --border-color: #D9C7A7; /* 边框色 */
+    --success-color: #8AAE5C; /* 成功提示色 */
+    --error-color: #D36B5D; /* 错误提示色 */
+}
+
+/* 页面主体 */
+body {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 容器类 - 控制页面最大宽度 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 顶部导航栏 */
+header {
+    background-color: var(--primary-color);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* 导航栏内容布局 */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 网站Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* 导航菜单 */
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* 购物车图标上的数量标记 */
+.cart-count {
+    background-color: var(--error-color);
+    color: white;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+
+/* 搜索框 */
+.search-container {
+    display: flex;
+    margin: 20px 0;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 30px 0 0 30px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 主要内容区域布局 */
+.main-content {
+    display: flex;
+    margin: 30px 0;
+    gap: 30px;
+}
+
+/* 侧边栏 - 商品分类 */
+.sidebar {
+    width: 25%;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+/* 分类列表 */
+.category-list {
+    list-style: none;
+}
+
+.category-list li {
+    margin-bottom: 10px;
+}
+
+.category-list li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8px 10px;
+    display: block;
+    border-radius: 5px;
+}
+
+.category-list li a.active {
+    background-color: var(--secondary-color);
+}
+
+/* 商品展示区域 */
+.products-section {
+    width: 75%;
+}
+
+.section-title {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 商品网格布局 */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* 商品卡片 */
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+}
+
+/* 商品图片区域 */
+.product-img {
+    height: 180px;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保持图片比例并覆盖整个区域 */
+    object-position: center; /* 图片居中显示 */
+}
+
+/* 商品信息 */
+.product-info {
+    padding: 15px;
+}
+
+.product-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.product-price {
+    font-weight: bold;
+    color: var(--accent-color);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* 加入购物车按钮 */
+.add-to-cart {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 模态框样式 - 用于显示详情、购物车、登录 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+}
+
+/* 关闭模态框按钮 */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* 商品详情页 */
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-img {
+    height: 200px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.detail-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保持图片比例并覆盖整个区域 */
+    object-position: center; /* 图片居中显示 */
+}
+
+.detail-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.detail-price {
+    font-size: 22px;
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* 购物车样式 */
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.cart-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保持图片比例并覆盖整个区域 */
+    object-position: center; /* 图片居中显示 */
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border-color);
+}
+
+/* 登录表单 */
+.auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 页脚 */
+footer {
+    background-color: var(--primary-color);
+    padding: 20px 0;
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* 响应式设计 - 平板设备 */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .sidebar, .products-section {
+        width: 100%;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+/* 响应式设计 - 手机设备 */
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    nav ul li {
+        margin: 0 10px;
+    }
+}
